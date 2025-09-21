@@ -1,5 +1,6 @@
 import type { RouteObject } from "react-router";
 import { authRoutes } from "@/features/auth/routes";
+import { menuRoutes } from "@/features/mainMenu/routes";
 // import { lazy } from "react";
 // import RootLayout from "@/shared/components/layout/RootLayout";
 
@@ -14,6 +15,7 @@ export const routes: RouteObject[] = [
     // errorElement: <ErrorPage />,
     children: [
       ...authRoutes,
+      ...menuRoutes,
       //   {
       //     path: ROUTES.LOGIN,
       //     element: <LoginPage />,
