@@ -15,7 +15,7 @@ export default function MenuContent() {
       id: 2,
       icon: <FileText className="w-16 h-16 text-white" />,
       title: "เสนอราคา",
-      onClick: () => console.log("เสนอราคา clicked"),
+      onClick: () => navigate("/vehicle-inspection"),
     },
     {
       id: 3,
