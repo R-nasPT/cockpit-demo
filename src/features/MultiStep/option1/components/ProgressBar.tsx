@@ -1,37 +1,58 @@
-import { steps } from "../../option1/config/form.config";
+import { Check } from "lucide-react";
+import { steps } from "../config/form.config";
 
 interface ProgressBarProps {
   currentStep: number;
-  // completedSteps: Set<number>;
+  completedSteps: Set<number>;
 }
 
 export default function ProgressBar({
   currentStep,
-}: // completedSteps,
-ProgressBarProps) {
+  completedSteps,
+}: ProgressBarProps) {
   return (
-    <div className="mb-4 flex items-center gap-2">
-      {steps.map((s, i) => (
-        <div key={s.id} className="flex items-center gap-2">
-          <div
-            className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium  
-                    ${
-                      i === currentStep
-                        ? "bg-blue-600 text-white"
-                        : "bg-gray-200 text-gray-700"
-                    }`}
-          >
-            {i + 1}
-          </div>
-          <div
-            className={`text-sm ${
-              i === currentStep ? "font-semibold" : "text-gray-500"
-            }`}
-          >
-            {s.label}
-          </div>
-        </div>
-      ))}
+    <div className="mb-8">
+      <div className="flex items-center justify-between mb-4">
+        {steps.map((step, index) => {
+          const Icon = step.icon;
+          const isCompleted = completedSteps.has(index);
+          const isCurrent = currentStep === index;
+
+          return (
+            <div key={step.id} className="flex flex-col items-center">
+              <div
+                className={`w-12 h-12 rounded-full flex items-center justify-center mb-2 transition-colors ${
+                  isCompleted
+                    ? "bg-green-500 text-white"
+                    : isCurrent
+                    ? "bg-blue-500 text-white"
+                    : "bg-gray-200 text-gray-500"
+                }`}
+              >
+                {isCompleted ? <Check size={20} /> : <Icon size={20} />}
+              </div>
+              <span
+                className={`text-sm font-medium ${
+                  isCurrent
+                    ? "text-blue-600"
+                    : isCompleted
+                    ? "text-green-600"
+                    : "text-gray-500"
+                }`}
+              >
+                {step.title}
+              </span>
+            </div>
+          );
+        })}
+      </div>
+
+      <div className="w-full bg-gray-200 rounded-full h-2">
+        <div
+          className="bg-blue-500 h-2 rounded-full transition-all duration-300"
+          style={{ width: `${(currentStep / (steps.length - 1)) * 100}%` }}
+        ></div>
+      </div>
     </div>
   );
 }

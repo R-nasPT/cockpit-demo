@@ -9,6 +9,7 @@ import ProgressBar from "./ProgressBar";
 
 export default function MultiStepForm() {
   const [step, setStep] = useState(0);
+  const [completedSteps, setCompletedSteps] = useState<Set<number>>(new Set());
 
   const methods = useForm<MultiFormValues>({
     resolver: zodResolver(fullSchema),
@@ -40,14 +41,18 @@ export default function MultiStepForm() {
   const nextStep = async () => {
     const currentFieldNames = Object.keys(steps[step].schema.shape) as (keyof MultiFormValues)[];
     const valid = await methods.trigger(currentFieldNames);
-    if (valid) setStep((s) => s + 1);
+    // if (valid) setStep((s) => s + 1);
+    if (valid) {
+      setCompletedSteps(prev => new Set([...prev, step]));
+      setStep((s) => s + 1);
+    }
   };
 
   const prevStep = () => setStep((s) => Math.max(0, s - 1));
 
   return (
     <div className="max-w-2xl mx-auto p-6 bg-white">
-      <ProgressBar currentStep={step} />
+      <ProgressBar currentStep={step} completedSteps={completedSteps}/>
 
       <FormProvider {...methods}>
         <form onSubmit={methods.handleSubmit(onSubmit)} noValidate>
