@@ -1,16 +1,18 @@
+import { steps } from "../config/form.config";
+
 interface NavigationButtonsProps {
   currentStep: number;
   onPrevStep: () => void;
   onNextStep: () => void;
-  isLast: boolean;
 }
 
 export default function NavigationButtons({
   currentStep,
   onPrevStep,
   onNextStep,
-  isLast,
 }: NavigationButtonsProps) {
+  const isLast = currentStep === steps.length - 1;
+
   return (
     <div className="flex justify-between gap-3">
       <button

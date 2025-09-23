@@ -27,8 +27,6 @@ export default function MultiStepForm() {
     },
   });
 
-  const isLast = step === steps.length - 1;
-
   const onSubmit: SubmitHandler<MultiFormValues> = (data) => {
     // ตัวอย่าง: ส่งข้อมูลไป API หรือทำอะไรต่อ
     // ที่นี่เราทำเป็น console.log เพื่อให้เห็นผล
@@ -60,7 +58,6 @@ export default function MultiStepForm() {
 
           <NavigationButtons
             currentStep={step}
-            isLast={isLast}
             onPrevStep={prevStep}
             onNextStep={nextStep}
           />

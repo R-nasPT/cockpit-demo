@@ -23,7 +23,7 @@ export default function ProgressBar({
               <div
                 className={`w-12 h-12 rounded-full flex items-center justify-center mb-2 transition-colors ${
                   isCompleted
-                    ? "bg-green-500 text-white"
+                    ? `bg-green-500 text-white ${isCurrent && "border-4 border-green-700"}`
                     : isCurrent
                     ? "bg-blue-500 text-white"
                     : "bg-gray-200 text-gray-500"
