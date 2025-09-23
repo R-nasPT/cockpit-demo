@@ -1,5 +1,5 @@
 import { Check } from "lucide-react";
-import { steps } from "../config/form.config";
+import { steps } from "../constants/form.constants";
 
 interface ProgressBarProps {
   currentStep: number;

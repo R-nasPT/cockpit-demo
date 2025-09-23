@@ -1,4 +1,4 @@
-import { steps } from "../config/form.config";
+import { steps } from "../constants/form.constants";
 
 interface NavigationButtonsProps {
   currentStep: number;

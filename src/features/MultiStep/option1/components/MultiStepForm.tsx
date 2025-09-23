@@ -3,7 +3,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useState } from "react";
 import { FormProvider, useForm, type SubmitHandler } from "react-hook-form";
 import { fullSchema } from "../schemas/form.schema";
-import { steps } from "../config/form.config";
+import { steps } from "../constants/form.constants";
 import NavigationButtons from "./NavigationButtons";
 import ProgressBar from "./ProgressBar";
 
