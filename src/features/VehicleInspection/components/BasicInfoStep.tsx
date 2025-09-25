@@ -1,5 +1,5 @@
 import {
-    Checkbox,
+  Checkbox,
   FormControl,
   FormField,
   FormItem,
@@ -17,24 +17,45 @@ export default function BasicInfoStep() {
   return (
     <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8 mb-6">
       {/* Header */}
-      <div className="flex justify-between items-center mb-8 pb-6 border-b border-gray-200">
-        <div className="flex items-center gap-6">
-          <h1 className="text-2xl font-bold text-gray-800">
-            COCKPIT ตรวจเช็คความปลอดภัยเบื้องต้น
-          </h1>
+      <div className="md:flex justify-between items-center mb-8 pb-6 border-b border-gray-200">
+        <h1 className="text-2xl font-bold text-gray-800">
+          COCKPIT ตรวจเช็คความปลอดภัยเบื้องต้น
+        </h1>
+        <div className="flex justify-between items-center gap-5">
+          <div className="flex items-center gap-6">
+            <FormField
+              control={control}
+              name="branchCode"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel className="text-sm font-medium text-gray-700">
+                    รหัสสาขา
+                  </FormLabel>
+                  <FormControl>
+                    <Input
+                      {...field}
+                      className="w-32 h-9"
+                      placeholder="เช่น BKK001"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
           <FormField
             control={control}
-            name="branchCode"
+            name="docNumber"
             render={({ field }) => (
               <FormItem>
                 <FormLabel className="text-sm font-medium text-gray-700">
-                  รหัสสาขา
+                  No.
                 </FormLabel>
                 <FormControl>
                   <Input
                     {...field}
                     className="w-32 h-9"
-                    placeholder="เช่น BKK001"
+                    placeholder="เช่น 001"
                   />
                 </FormControl>
                 <FormMessage />
@@ -42,21 +63,6 @@ export default function BasicInfoStep() {
             )}
           />
         </div>
-        <FormField
-          control={control}
-          name="docNumber"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel className="text-sm font-medium text-gray-700">
-                No.
-              </FormLabel>
-              <FormControl>
-                <Input {...field} className="w-32 h-9" placeholder="เช่น 001" />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
       </div>
 
       <div className="grid grid-cols-12 gap-8">
