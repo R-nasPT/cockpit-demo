@@ -37,7 +37,7 @@ export default function VehicleInspectionForm() {
     alert("ส่งข้อมูลสำเร็จ — ดู console.log");
   };
 
-  const Components = steps[step].component;
+  const StepComponents = steps[step].component;
 
   return (
     <div className="max-w-6xl mx-auto p-4 md:p-6">
@@ -46,7 +46,7 @@ export default function VehicleInspectionForm() {
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)} noValidate>
           <div className="mb-6">
-            <Components />
+            <StepComponents />
           </div>
 
           <NavigationButtons
