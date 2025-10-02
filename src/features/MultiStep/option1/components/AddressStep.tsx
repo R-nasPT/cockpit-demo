@@ -1,5 +1,5 @@
-import { useFormContext } from "react-hook-form";
-import type { MultiFormValues } from "../types/form.types";
+import { useFormContext } from 'react-hook-form';
+import type { MultiFormValues } from '../types/form.types';
 
 export default function AddressStep() {
   const { register, formState } = useFormContext<MultiFormValues>();
@@ -9,9 +9,9 @@ export default function AddressStep() {
     <div className="space-y-3">
       <div>
         <label className="block text-sm">ที่อยู่</label>
-        <input className="border p-2 w-full" {...register("address1")} />
+        <input className="w-full border p-2" {...register('address1')} />
         {errors.address1 && (
-          <p className="text-red-600 text-sm">
+          <p className="text-sm text-red-600">
             {errors.address1?.message as string}
           </p>
         )}
@@ -19,9 +19,9 @@ export default function AddressStep() {
 
       <div>
         <label className="block text-sm">จังหวัด/เมือง</label>
-        <input className="border p-2 w-full" {...register("city")} />
+        <input className="w-full border p-2" {...register('city')} />
         {errors.city && (
-          <p className="text-red-600 text-sm">
+          <p className="text-sm text-red-600">
             {errors.city?.message as string}
           </p>
         )}
@@ -29,9 +29,9 @@ export default function AddressStep() {
 
       <div>
         <label className="block text-sm">รหัสไปรษณีย์</label>
-        <input className="border p-2 w-full" {...register("postal")} />
+        <input className="w-full border p-2" {...register('postal')} />
         {errors.postal && (
-          <p className="text-red-600 text-sm">
+          <p className="text-sm text-red-600">
             {errors.postal?.message as string}
           </p>
         )}

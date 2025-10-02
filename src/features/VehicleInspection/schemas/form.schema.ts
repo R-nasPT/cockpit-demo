@@ -1,8 +1,8 @@
-import z from "zod";
+import z from 'zod';
 
 export const basicInfoSchema = z.object({
-  branchCode: z.string().min(1, "กรุณากรอกรหัสสาขา"),
-  docNumber: z.string().min(1, "กรุณากรอกหมายเลข"),
+  branchCode: z.string().min(1, 'กรุณากรอกรหัสสาขา'),
+  docNumber: z.string().min(1, 'กรุณากรอกหมายเลข'),
   date: z.string(),
   time: z.string(),
   license: z.string(),
@@ -34,13 +34,13 @@ const appearanceSchema = z.object({
 });
 
 const pressureSchema = z.object({
-  first: z.string().default("0"),
-  second: z.string().default("0"),
+  first: z.string().default('0'),
+  second: z.string().default('0'),
 });
 
 const treadSchema = z.object({
-  main: z.string().default("0"),
-  decimal: z.string().default("0"),
+  main: z.string().default('0'),
+  decimal: z.string().default('0'),
 });
 
 const tireSchema = z.object({
@@ -56,7 +56,7 @@ export const tireInspectionSchema = z.object({
   rearLeft: tireSchema,
   rearRight: tireSchema,
   psiReadable: z.boolean().default(false),
-  psiReading: z.string().min(1, "ต้องมีอย่างน้อย 1"),
+  psiReading: z.string().min(1, 'ต้องมีอย่างน้อย 1'),
 });
 
 // -------------------------------
@@ -112,8 +112,8 @@ export const fluidSchema = z.object({
 // -------------------------------
 export const commentsFeedbackSchema = z.object({
   description: z.string().max(2000).optional(),
-  ownerSignature: z.string().min(1, "กรุณากรอกชื่อ (เจ้าของรถ/ผู้รับรถ)"),
-  inspectorSignature: z.string().min(1, "กรุณากรอกชื่อ (ผู้ตรวจสอบ)"),
+  ownerSignature: z.string().min(1, 'กรุณากรอกชื่อ (เจ้าของรถ/ผู้รับรถ)'),
+  inspectorSignature: z.string().min(1, 'กรุณากรอกชื่อ (ผู้ตรวจสอบ)'),
 });
 
 // combine to a single schema for final validation

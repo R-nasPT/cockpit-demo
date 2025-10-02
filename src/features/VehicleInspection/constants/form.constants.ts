@@ -1,13 +1,13 @@
 export const INITIAL_FORM_VALUES = {
-  branchCode: "",
-  docNumber: "",
-  date: "",
-  time: "",
-  license: "",
-  shift: "",
-  brand: "",
-  model: "",
-  phone: "",
+  branchCode: '',
+  docNumber: '',
+  date: '',
+  time: '',
+  license: '',
+  shift: '',
+  brand: '',
+  model: '',
+  phone: '',
   status: {
     needMaintenance: false,
     needReview: false,
@@ -24,8 +24,8 @@ export const INITIAL_FORM_VALUES = {
       irregular: false,
       puncture: false,
     },
-    pressure: { first: "0", second: "0" },
-    treadDepth: { main: "0", decimal: "0" },
+    pressure: { first: '0', second: '0' },
+    treadDepth: { main: '0', decimal: '0' },
   },
   frontRight: {
     condition: { normal: false, damaged: false, punctured: false },
@@ -35,8 +35,8 @@ export const INITIAL_FORM_VALUES = {
       irregular: false,
       puncture: false,
     },
-    pressure: { first: "0", second: "0" },
-    treadDepth: { main: "0", decimal: "0" },
+    pressure: { first: '0', second: '0' },
+    treadDepth: { main: '0', decimal: '0' },
   },
   rearLeft: {
     condition: { normal: false, damaged: false, punctured: false },
@@ -46,8 +46,8 @@ export const INITIAL_FORM_VALUES = {
       irregular: false,
       puncture: false,
     },
-    pressure: { first: "0", second: "0" },
-    treadDepth: { main: "0", decimal: "0" },
+    pressure: { first: '0', second: '0' },
+    treadDepth: { main: '0', decimal: '0' },
   },
   rearRight: {
     condition: { normal: false, damaged: false, punctured: false },
@@ -57,11 +57,11 @@ export const INITIAL_FORM_VALUES = {
       irregular: false,
       puncture: false,
     },
-    pressure: { first: "0", second: "0" },
-    treadDepth: { main: "0", decimal: "0" },
+    pressure: { first: '0', second: '0' },
+    treadDepth: { main: '0', decimal: '0' },
   },
   psiReadable: false,
-  psiReading: "",
+  psiReading: '',
   // -------------------------------
   // step 3
   // -------------------------------
@@ -135,7 +135,7 @@ export const INITIAL_FORM_VALUES = {
   // -------------------------------
   // step 4
   // -------------------------------
-  description: "",
-  ownerSignature: "",
-  inspectorSignature: "",
+  description: '',
+  ownerSignature: '',
+  inspectorSignature: '',
 };

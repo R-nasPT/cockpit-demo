@@ -1,5 +1,5 @@
-import type { MultiFormValues } from "../types/form.types";
-import { useFormContext } from "react-hook-form";
+import type { MultiFormValues } from '../types/form.types';
+import { useFormContext } from 'react-hook-form';
 
 export default function AccountStep() {
   const { register, formState } = useFormContext<MultiFormValues>();
@@ -9,9 +9,9 @@ export default function AccountStep() {
     <div className="space-y-3">
       <div>
         <label className="block text-sm">อีเมล</label>
-        <input className="border p-2 w-full" {...register("email")} />
+        <input className="w-full border p-2" {...register('email')} />
         {errors.email && (
-          <p className="text-red-600 text-sm">
+          <p className="text-sm text-red-600">
             {errors.email?.message as string}
           </p>
         )}
@@ -21,11 +21,11 @@ export default function AccountStep() {
         <label className="block text-sm">รหัสผ่าน</label>
         <input
           type="password"
-          className="border p-2 w-full"
-          {...register("password")}
+          className="w-full border p-2"
+          {...register('password')}
         />
         {errors.password && (
-          <p className="text-red-600 text-sm">
+          <p className="text-sm text-red-600">
             {errors.password?.message as string}
           </p>
         )}
@@ -35,11 +35,11 @@ export default function AccountStep() {
         <label className="block text-sm">ยืนยันรหัสผ่าน</label>
         <input
           type="password"
-          className="border p-2 w-full"
-          {...register("confirmPassword")}
+          className="w-full border p-2"
+          {...register('confirmPassword')}
         />
         {errors.confirmPassword && (
-          <p className="text-red-600 text-sm">
+          <p className="text-sm text-red-600">
             {errors.confirmPassword?.message as string}
           </p>
         )}

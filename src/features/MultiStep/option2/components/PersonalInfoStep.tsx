@@ -1,17 +1,17 @@
-import type { StepProps } from "../types/step.types";
-import { Controller } from "react-hook-form";
+import type { StepProps } from '../types/step.types';
+import { Controller } from 'react-hook-form';
 
 export default function PersonalInfoStep({ control, errors }: StepProps) {
   return (
     <div className="space-y-6">
       <div>
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">ข้อมูลส่วนตัว</h2>
+        <h2 className="mb-2 text-2xl font-bold text-gray-900">ข้อมูลส่วนตัว</h2>
         <p className="text-gray-600">กรุณากรอกข้อมูลส่วนตัวของคุณ</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+          <label className="mb-1 block text-sm font-medium text-gray-700">
             ชื่อ
           </label>
           <Controller
@@ -20,22 +20,22 @@ export default function PersonalInfoStep({ control, errors }: StepProps) {
             render={({ field }) => (
               <input
                 {...field}
-                className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                  errors.firstName ? "border-red-500" : "border-gray-300"
+                className={`w-full rounded-md border px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none ${
+                  errors.firstName ? 'border-red-500' : 'border-gray-300'
                 }`}
                 placeholder="กรอกชื่อของคุณ"
               />
             )}
           />
           {errors.firstName && (
-            <p className="text-red-500 text-sm mt-1">
+            <p className="mt-1 text-sm text-red-500">
               {errors.firstName.message}
             </p>
           )}
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+          <label className="mb-1 block text-sm font-medium text-gray-700">
             นามสกุล
           </label>
           <Controller
@@ -44,15 +44,15 @@ export default function PersonalInfoStep({ control, errors }: StepProps) {
             render={({ field }) => (
               <input
                 {...field}
-                className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                  errors.lastName ? "border-red-500" : "border-gray-300"
+                className={`w-full rounded-md border px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none ${
+                  errors.lastName ? 'border-red-500' : 'border-gray-300'
                 }`}
                 placeholder="กรอกนามสกุลของคุณ"
               />
             )}
           />
           {errors.lastName && (
-            <p className="text-red-500 text-sm mt-1">
+            <p className="mt-1 text-sm text-red-500">
               {errors.lastName.message}
             </p>
           )}
@@ -60,7 +60,7 @@ export default function PersonalInfoStep({ control, errors }: StepProps) {
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">
+        <label className="mb-1 block text-sm font-medium text-gray-700">
           อีเมล
         </label>
         <Controller
@@ -70,20 +70,20 @@ export default function PersonalInfoStep({ control, errors }: StepProps) {
             <input
               {...field}
               type="email"
-              className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                errors.email ? "border-red-500" : "border-gray-300"
+              className={`w-full rounded-md border px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none ${
+                errors.email ? 'border-red-500' : 'border-gray-300'
               }`}
               placeholder="example@email.com"
             />
           )}
         />
         {errors.email && (
-          <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+          <p className="mt-1 text-sm text-red-500">{errors.email.message}</p>
         )}
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-1">
+        <label className="mb-1 block text-sm font-medium text-gray-700">
           เบอร์โทร
         </label>
         <Controller
@@ -92,15 +92,15 @@ export default function PersonalInfoStep({ control, errors }: StepProps) {
           render={({ field }) => (
             <input
               {...field}
-              className={`w-full px-3 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
-                errors.phone ? "border-red-500" : "border-gray-300"
+              className={`w-full rounded-md border px-3 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none ${
+                errors.phone ? 'border-red-500' : 'border-gray-300'
               }`}
               placeholder="0812345678"
             />
           )}
         />
         {errors.phone && (
-          <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>
+          <p className="mt-1 text-sm text-red-500">{errors.phone.message}</p>
         )}
       </div>
     </div>

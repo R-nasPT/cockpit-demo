@@ -1,5 +1,5 @@
-import { useFormContext } from "react-hook-form";
-import type { MultiFormValues } from "../types/form.types";
+import { useFormContext } from 'react-hook-form';
+import type { MultiFormValues } from '../types/form.types';
 import {
   Button,
   Card,
@@ -14,9 +14,9 @@ import {
   FormLabel,
   FormMessage,
   Input,
-} from "@/shared/components/ui";
+} from '@/shared/components/ui';
 
-type TireKey = "frontLeft" | "frontRight" | "rearLeft" | "rearRight";
+type TireKey = 'frontLeft' | 'frontRight' | 'rearLeft' | 'rearRight';
 
 // -------------------------------
 // NumberSelector - reusable
@@ -25,21 +25,21 @@ function NumberSelector({
   selectedValue,
   onChange,
   numbers,
-  color = "blue",
+  color = 'blue',
 }: {
   selectedValue: string;
   onChange: (val: string) => void;
   numbers: (number | string)[];
-  color?: "blue" | "red" | "gray";
+  color?: 'blue' | 'red' | 'gray';
 }) {
   const colorClasses: Record<string, string> = {
-    blue: "bg-blue-600 text-white border-blue-600",
-    red: "bg-red-600 text-white border-red-600",
-    gray: "bg-gray-600 text-white border-gray-600",
+    blue: 'bg-blue-600 text-white border-blue-600',
+    red: 'bg-red-600 text-white border-red-600',
+    gray: 'bg-gray-600 text-white border-gray-600',
   };
 
   return (
-    <div className="flex gap-2 flex-wrap">
+    <div className="flex flex-wrap gap-2">
       {numbers.map((n) => {
         const value = n.toString();
         const selected = value === selectedValue;
@@ -48,10 +48,10 @@ function NumberSelector({
             key={value}
             type="button"
             onClick={() => onChange(value)}
-            className={`w-12 h-12 rounded-lg text-lg font-semibold border-2 transition-transform duration-150 flex items-center justify-center ${
+            className={`flex h-12 w-12 items-center justify-center rounded-lg border-2 text-lg font-semibold transition-transform duration-150 ${
               selected
                 ? `${colorClasses[color]} scale-105 shadow`
-                : "bg-white text-gray-700 border-gray-300 hover:bg-gray-50 active:scale-95"
+                : 'border-gray-300 bg-white text-gray-700 hover:bg-gray-50 active:scale-95'
             }`}
           >
             {value}
@@ -73,7 +73,7 @@ function TireSection({ title, name }: { title: string; name: TireKey }) {
     <Card className="shadow-sm">
       <CardHeader>
         <CardTitle>
-          <h3 className="bg-gray-700 text-white px-3 py-1 rounded inline-block text-lg">
+          <h3 className="inline-block rounded bg-gray-700 px-3 py-1 text-lg text-white">
             {title}
           </h3>
         </CardTitle>
@@ -82,17 +82,17 @@ function TireSection({ title, name }: { title: string; name: TireKey }) {
       <CardContent className="space-y-6">
         {/* Condition (3 checkboxes) */}
         <div>
-          <p className="text-base font-semibold text-gray-800 mb-3">สถานะ</p>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <p className="mb-3 text-base font-semibold text-gray-800">สถานะ</p>
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
             <FormField
               control={control}
               name={`${name}.condition.normal`}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="flex items-center gap-3 cursor-pointer border-2 border-gray-100 bg-gray-50 p-4 rounded-lg hover:border-blue-200 transition-colors">
+                  <FormLabel className="flex cursor-pointer items-center gap-3 rounded-lg border-2 border-gray-100 bg-gray-50 p-4 transition-colors hover:border-blue-200">
                     <FormControl>
                       <Checkbox
-                        className="w-6 h-6 data-[state=checked]:bg-blue-500 data-[state=checked]:border-blue-500 mt-1"
+                        className="mt-1 h-6 w-6 data-[state=checked]:border-blue-500 data-[state=checked]:bg-blue-500"
                         checked={field.value}
                         onCheckedChange={(v) => field.onChange(Boolean(v))}
                       />
@@ -111,10 +111,10 @@ function TireSection({ title, name }: { title: string; name: TireKey }) {
               name={`${name}.condition.damaged`}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="flex items-center gap-3 cursor-pointer border-2 border-gray-100 bg-gray-50 p-4 rounded-lg hover:border-blue-200 transition-colors">
+                  <FormLabel className="flex cursor-pointer items-center gap-3 rounded-lg border-2 border-gray-100 bg-gray-50 p-4 transition-colors hover:border-blue-200">
                     <FormControl>
                       <Checkbox
-                        className="w-6 h-6 data-[state=checked]:bg-blue-500 data-[state=checked]:border-blue-500 mt-1"
+                        className="mt-1 h-6 w-6 data-[state=checked]:border-blue-500 data-[state=checked]:bg-blue-500"
                         checked={field.value}
                         onCheckedChange={(v) => field.onChange(Boolean(v))}
                       />
@@ -133,10 +133,10 @@ function TireSection({ title, name }: { title: string; name: TireKey }) {
               name={`${name}.condition.punctured`}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="flex items-center gap-3 cursor-pointer border-2 border-gray-100 bg-gray-50 p-4 rounded-lg hover:border-blue-200 transition-colors">
+                  <FormLabel className="flex cursor-pointer items-center gap-3 rounded-lg border-2 border-gray-100 bg-gray-50 p-4 transition-colors hover:border-blue-200">
                     <FormControl>
                       <Checkbox
-                        className="w-6 h-6 data-[state=checked]:bg-blue-500 data-[state=checked]:border-blue-500 mt-1"
+                        className="mt-1 h-6 w-6 data-[state=checked]:border-blue-500 data-[state=checked]:bg-blue-500"
                         checked={field.value}
                         onCheckedChange={(v) => field.onChange(Boolean(v))}
                       />
@@ -154,17 +154,17 @@ function TireSection({ title, name }: { title: string; name: TireKey }) {
 
         {/* Appearance */}
         <div>
-          <p className="text-base font-semibold text-gray-800 mb-3">สภาพยาง</p>
+          <p className="mb-3 text-base font-semibold text-gray-800">สภาพยาง</p>
           <div className="grid grid-cols-2 gap-3">
             <FormField
               control={control}
               name={`${name}.appearance.bald`}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="flex items-center gap-3 cursor-pointer border-2 border-gray-100 bg-gray-50 p-4 rounded-lg hover:border-blue-200 transition-colors">
+                  <FormLabel className="flex cursor-pointer items-center gap-3 rounded-lg border-2 border-gray-100 bg-gray-50 p-4 transition-colors hover:border-blue-200">
                     <FormControl>
                       <Checkbox
-                        className="w-6 h-6 data-[state=checked]:bg-blue-500 data-[state=checked]:border-blue-500 mt-1"
+                        className="mt-1 h-6 w-6 data-[state=checked]:border-blue-500 data-[state=checked]:bg-blue-500"
                         checked={field.value}
                         onCheckedChange={(v) => field.onChange(Boolean(v))}
                       />
@@ -183,10 +183,10 @@ function TireSection({ title, name }: { title: string; name: TireKey }) {
               name={`${name}.appearance.cracked`}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="flex items-center gap-3 cursor-pointer border-2 border-gray-100 bg-gray-50 p-4 rounded-lg hover:border-blue-200 transition-colors">
+                  <FormLabel className="flex cursor-pointer items-center gap-3 rounded-lg border-2 border-gray-100 bg-gray-50 p-4 transition-colors hover:border-blue-200">
                     <FormControl>
                       <Checkbox
-                        className="w-6 h-6 data-[state=checked]:bg-blue-500 data-[state=checked]:border-blue-500 mt-1"
+                        className="mt-1 h-6 w-6 data-[state=checked]:border-blue-500 data-[state=checked]:bg-blue-500"
                         checked={field.value}
                         onCheckedChange={(v) => field.onChange(Boolean(v))}
                       />
@@ -205,10 +205,10 @@ function TireSection({ title, name }: { title: string; name: TireKey }) {
               name={`${name}.appearance.irregular`}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="flex items-center gap-3 cursor-pointer border-2 border-gray-100 bg-gray-50 p-4 rounded-lg hover:border-blue-200 transition-colors">
+                  <FormLabel className="flex cursor-pointer items-center gap-3 rounded-lg border-2 border-gray-100 bg-gray-50 p-4 transition-colors hover:border-blue-200">
                     <FormControl>
                       <Checkbox
-                        className="w-6 h-6 data-[state=checked]:bg-blue-500 data-[state=checked]:border-blue-500 mt-1"
+                        className="mt-1 h-6 w-6 data-[state=checked]:border-blue-500 data-[state=checked]:bg-blue-500"
                         checked={field.value}
                         onCheckedChange={(v) => field.onChange(Boolean(v))}
                       />
@@ -227,10 +227,10 @@ function TireSection({ title, name }: { title: string; name: TireKey }) {
               name={`${name}.appearance.puncture`}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel className="flex items-center gap-3 cursor-pointer border-2 border-gray-100 bg-gray-50 p-4 rounded-lg hover:border-blue-200 transition-colors">
+                  <FormLabel className="flex cursor-pointer items-center gap-3 rounded-lg border-2 border-gray-100 bg-gray-50 p-4 transition-colors hover:border-blue-200">
                     <FormControl>
                       <Checkbox
-                        className="w-6 h-6 data-[state=checked]:bg-blue-500 data-[state=checked]:border-blue-500 mt-1"
+                        className="mt-1 h-6 w-6 data-[state=checked]:border-blue-500 data-[state=checked]:bg-blue-500"
                         checked={field.value}
                         onCheckedChange={(v) => field.onChange(Boolean(v))}
                       />
@@ -248,18 +248,18 @@ function TireSection({ title, name }: { title: string; name: TireKey }) {
 
         {/* Pressure */}
         <div>
-          <p className="text-base font-semibold text-gray-800 mb-3">
+          <p className="mb-3 text-base font-semibold text-gray-800">
             แรงดันลมยาง (PSI)
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             <div>
               <FormField
                 control={control}
                 name={`${name}.pressure.first`}
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-sm text-blue-600 mb-2">
+                    <FormLabel className="mb-2 text-sm text-blue-600">
                       หลักสิบ
                     </FormLabel>
                     <FormControl>
@@ -282,7 +282,7 @@ function TireSection({ title, name }: { title: string; name: TireKey }) {
                 name={`${name}.pressure.second`}
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="text-sm text-blue-600 mb-2">
+                    <FormLabel className="mb-2 text-sm text-blue-600">
                       หลักหน่วย
                     </FormLabel>
                     <FormControl>
@@ -303,7 +303,7 @@ function TireSection({ title, name }: { title: string; name: TireKey }) {
 
         {/* Tread Depth */}
         <div>
-          <p className="text-sm font-medium text-gray-700 mb-2">
+          <p className="mb-2 text-sm font-medium text-gray-700">
             ความลึกร่องยางมาตรฐาน (มม.)
           </p>
 
@@ -357,16 +357,16 @@ export default function TireInspectionStep() {
   const { control } = useFormContext<MultiFormValues>();
 
   return (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8 mb-6">
+    <div className="mb-6 rounded-lg border border-gray-200 bg-white p-8 shadow-sm">
       {/* Step header */}
-      <div className="bg-blue-50 border-l-4 border-blue-600 rounded-lg px-6 py-4 mb-6">
+      <div className="mb-6 rounded-lg border-l-4 border-blue-600 bg-blue-50 px-6 py-4">
         <div className="flex items-center gap-3">
-          <div className="bg-blue-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold text-lg">
+          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-600 text-lg font-bold text-white">
             2
           </div>
           <div>
             <h2 className="text-xl font-bold text-gray-800">ยาง (Tires)</h2>
-            <p className="text-sm text-gray-600 mt-1">
+            <p className="mt-1 text-sm text-gray-600">
               ตรวจสอบสภาพยางและแรงดันลม
             </p>
           </div>
@@ -375,19 +375,19 @@ export default function TireInspectionStep() {
 
       {/* Tire grid */}
       <div className="space-y-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
           <TireSection title="ยางหน้า ซ้าย" name="frontLeft" />
           <TireSection title="ยางหน้า ขวา" name="frontRight" />
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
           <TireSection title="ยางหลัง ซ้าย" name="rearLeft" />
           <TireSection title="ยางหลัง ขวา" name="rearRight" />
         </div>
       </div>
 
       {/* PSI Reading Section */}
-      <div className="bg-blue-50 rounded-xl border border-blue-200 p-6">
+      <div className="rounded-xl border border-blue-200 bg-blue-50 p-6">
         <div className="flex flex-wrap items-center gap-6">
           <span className="text-lg font-semibold text-gray-800">
             แรงดันลมยางหลังเดิม (PSI)
@@ -397,10 +397,10 @@ export default function TireInspectionStep() {
             control={control}
             name="psiReadable"
             render={({ field }) => (
-              <FormItem className="flex items-center gap-3 bg-white p-2 rounded-lg">
+              <FormItem className="flex items-center gap-3 rounded-lg bg-white p-2">
                 <FormControl>
                   <Checkbox
-                    className="w-6 h-6 data-[state=checked]:bg-green-500 data-[state=checked]:border-green-500 mt-1"
+                    className="mt-1 h-6 w-6 data-[state=checked]:border-green-500 data-[state=checked]:bg-green-500"
                     checked={field.value}
                     onCheckedChange={(v) => field.onChange(Boolean(v))}
                   />
@@ -422,7 +422,7 @@ export default function TireInspectionStep() {
                   <Input
                     {...field}
                     placeholder="PSI"
-                    className="w-24 p-5 bg-white"
+                    className="w-24 bg-white p-5"
                   />
                 </FormControl>
                 <FormMessage />

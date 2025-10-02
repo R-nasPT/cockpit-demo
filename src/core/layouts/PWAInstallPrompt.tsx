@@ -15,14 +15,15 @@ interface NavigatorStandalone extends Navigator {
 
 const isStandalone = () => {
   return (
-    window.matchMedia("(display-mode: standalone)").matches ||
+    window.matchMedia('(display-mode: standalone)').matches ||
     (window.navigator as NavigatorStandalone).standalone === true ||
-    document.referrer.includes("android-app://")
+    document.referrer.includes('android-app://')
   );
 };
 
 export default function PWAInstallPrompt() {
-  const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
+  const [deferredPrompt, setDeferredPrompt] =
+    useState<BeforeInstallPromptEvent | null>(null);
   const [showInstallButton, setShowInstallButton] = useState(false);
 
   useEffect(() => {
@@ -48,7 +49,10 @@ export default function PWAInstallPrompt() {
     window.addEventListener('appinstalled', handleAppInstalled);
 
     return () => {
-      window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+      window.removeEventListener(
+        'beforeinstallprompt',
+        handleBeforeInstallPrompt
+      );
       window.removeEventListener('appinstalled', handleAppInstalled);
     };
   }, []);
@@ -58,13 +62,13 @@ export default function PWAInstallPrompt() {
 
     deferredPrompt.prompt();
     const { outcome } = await deferredPrompt.userChoice;
-    
+
     if (outcome === 'accepted') {
       console.log('User accepted the install prompt');
     } else {
       console.log('User dismissed the install prompt');
     }
-    
+
     setDeferredPrompt(null);
     setShowInstallButton(false);
   };
@@ -74,24 +78,24 @@ export default function PWAInstallPrompt() {
   }
 
   return (
-    <div className="fixed bottom-6 left-6 right-6 bg-black text-white p-6 rounded-2xl shadow-2xl z-50 md:left-auto md:right-6 md:max-w-md border-2 border-yellow-400">
+    <div className="fixed right-6 bottom-6 left-6 z-50 rounded-2xl border-2 border-yellow-400 bg-black p-6 text-white shadow-2xl md:right-6 md:left-auto md:max-w-md">
       <div className="flex items-center justify-between gap-4">
         <div className="flex-1">
-          <h3 className="font-bold text-lg mb-2">ติดตั้งแอป</h3>
-          <p className="text-sm opacity-95 leading-relaxed">
+          <h3 className="mb-2 text-lg font-bold">ติดตั้งแอป</h3>
+          <p className="text-sm leading-relaxed opacity-95">
             ติดตั้งแอปนี้บนอุปกรณ์ของคุณเพื่อประสบการณ์ที่ดีกว่า
           </p>
         </div>
-        <div className="flex flex-col gap-3 min-w-0">
+        <div className="flex min-w-0 flex-col gap-3">
           <button
             onClick={handleInstallClick}
-            className="cursor-pointer px-6 py-3 text-base bg-yellow-400 text-black rounded-xl hover:bg-yellow-300 active:scale-95 transition-all duration-200 font-bold shadow-md whitespace-nowrap"
+            className="cursor-pointer rounded-xl bg-yellow-400 px-6 py-3 text-base font-bold whitespace-nowrap text-black shadow-md transition-all duration-200 hover:bg-yellow-300 active:scale-95"
           >
             ติดตั้ง
           </button>
           <button
             onClick={() => setShowInstallButton(false)}
-            className="cursor-pointer px-6 py-2 text-sm bg-gray-800 rounded-xl hover:bg-gray-700 active:scale-95 transition-all duration-200 font-medium border border-yellow-400 whitespace-nowrap"
+            className="cursor-pointer rounded-xl border border-yellow-400 bg-gray-800 px-6 py-2 text-sm font-medium whitespace-nowrap transition-all duration-200 hover:bg-gray-700 active:scale-95"
           >
             ทีหลัง
           </button>

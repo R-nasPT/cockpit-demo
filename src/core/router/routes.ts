@@ -1,8 +1,8 @@
-import type { RouteObject } from "react-router";
-import { authRoutes } from "@/features/auth/routes";
-import { menuRoutes } from "@/features/mainMenu/routes";
-import { vehicleInspectionRoutes } from "@/features/VehicleInspection/routes";
-import RootLayout from "../layouts/RootLayout";
+import type { RouteObject } from 'react-router';
+import { authRoutes } from '@/features/auth/routes';
+import { menuRoutes } from '@/features/mainMenu/routes';
+import { vehicleInspectionRoutes } from '@/features/VehicleInspection/routes';
+import RootLayout from '../layouts/RootLayout';
 // import { lazy } from "react";
 // import RootLayout from "@/shared/components/layout/RootLayout";
 
@@ -11,7 +11,7 @@ import RootLayout from "../layouts/RootLayout";
 
 export const routes: RouteObject[] = [
   {
-    path: "/",
+    path: '/',
     // element: <RootLayout />,
     Component: RootLayout,
     // errorElement: <ErrorPage />,

@@ -1,9 +1,9 @@
-import type { RouteObject } from "react-router";
-import MainMenuPage from "@/pages/MainMenuPage";
+import type { RouteObject } from 'react-router';
+import MainMenuPage from '@/pages/MainMenuPage';
 
 export const menuRoutes: RouteObject[] = [
   {
-    path: "/menu",
+    path: '/menu',
     Component: MainMenuPage,
   },
 ];

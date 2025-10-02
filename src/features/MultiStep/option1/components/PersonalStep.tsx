@@ -1,5 +1,5 @@
-import type { MultiFormValues } from "../types/form.types";
-import { useFormContext } from "react-hook-form";
+import type { MultiFormValues } from '../types/form.types';
+import { useFormContext } from 'react-hook-form';
 
 export default function PersonalStep() {
   const { register, formState } = useFormContext<MultiFormValues>();
@@ -9,9 +9,9 @@ export default function PersonalStep() {
     <div className="space-y-3">
       <div>
         <label className="block text-sm">ชื่อ</label>
-        <input className="border p-2 w-full" {...register("firstName")} />
+        <input className="w-full border p-2" {...register('firstName')} />
         {errors.firstName && (
-          <p className="text-red-600 text-sm">
+          <p className="text-sm text-red-600">
             {errors.firstName?.message as string}
           </p>
         )}
@@ -19,9 +19,9 @@ export default function PersonalStep() {
 
       <div>
         <label className="block text-sm">นามสกุล</label>
-        <input className="border p-2 w-full" {...register("lastName")} />
+        <input className="w-full border p-2" {...register('lastName')} />
         {errors.lastName && (
-          <p className="text-red-600 text-sm">
+          <p className="text-sm text-red-600">
             {errors.lastName?.message as string}
           </p>
         )}
@@ -29,9 +29,9 @@ export default function PersonalStep() {
 
       <div>
         <label className="block text-sm">อายุ</label>
-        <input className="border p-2 w-full" {...register("age")} />
+        <input className="w-full border p-2" {...register('age')} />
         {errors.age && (
-          <p className="text-red-600 text-sm">
+          <p className="text-sm text-red-600">
             {errors.age?.message as string}
           </p>
         )}

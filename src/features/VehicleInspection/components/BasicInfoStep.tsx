@@ -6,22 +6,22 @@ import {
   FormLabel,
   FormMessage,
   Input,
-} from "@/shared/components/ui";
-import { CheckCircle } from "lucide-react";
-import { useFormContext } from "react-hook-form";
-import type { MultiFormValues } from "../types/form.types";
+} from '@/shared/components/ui';
+import { CheckCircle } from 'lucide-react';
+import { useFormContext } from 'react-hook-form';
+import type { MultiFormValues } from '../types/form.types';
 
 export default function BasicInfoStep() {
   const { control } = useFormContext<MultiFormValues>();
 
   return (
-    <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8 mb-6">
+    <div className="mb-6 rounded-lg border border-gray-200 bg-white p-8 shadow-sm">
       {/* Header */}
-      <div className="md:flex justify-between items-center mb-8 pb-6 border-b border-gray-200">
+      <div className="mb-8 items-center justify-between border-b border-gray-200 pb-6 md:flex">
         <h1 className="text-2xl font-bold text-gray-800">
           COCKPIT ตรวจเช็คความปลอดภัยเบื้องต้น
         </h1>
-        <div className="flex justify-between items-center gap-5">
+        <div className="flex items-center justify-between gap-5">
           <div className="flex items-center gap-6">
             <FormField
               control={control}
@@ -34,7 +34,7 @@ export default function BasicInfoStep() {
                   <FormControl>
                     <Input
                       {...field}
-                      className="w-32 h-9"
+                      className="h-9 w-32"
                       placeholder="เช่น BKK001"
                     />
                   </FormControl>
@@ -54,7 +54,7 @@ export default function BasicInfoStep() {
                 <FormControl>
                   <Input
                     {...field}
-                    className="w-32 h-9"
+                    className="h-9 w-32"
                     placeholder="เช่น 001"
                   />
                 </FormControl>
@@ -68,7 +68,7 @@ export default function BasicInfoStep() {
       <div className="grid grid-cols-12 gap-8">
         {/* Left Column */}
         <div className="col-span-12 lg:col-span-9">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
             <FormField
               control={control}
               name="date"
@@ -205,9 +205,9 @@ export default function BasicInfoStep() {
 
         {/* Right Column - Status */}
         <div className="col-span-12 lg:col-span-3">
-          <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-lg p-6 border border-gray-200">
-            <div className="flex items-center mb-6">
-              <CheckCircle className="w-5 h-5 text-blue-500 mr-2" />
+          <div className="rounded-lg border border-gray-200 bg-gradient-to-br from-gray-50 to-gray-100 p-6">
+            <div className="mb-6 flex items-center">
+              <CheckCircle className="mr-2 h-5 w-5 text-blue-500" />
               <h3 className="text-lg font-semibold text-gray-800">
                 สถานะทั่วไป
               </h3>
@@ -219,16 +219,16 @@ export default function BasicInfoStep() {
                 control={control}
                 name="status.needMaintenance"
                 render={({ field }) => (
-                  <FormItem className="flex flex-row items-start space-x-3 p-3 rounded-lg hover:bg-white/50 transition-colors">
+                  <FormItem className="flex flex-row items-start space-x-3 rounded-lg p-3 transition-colors hover:bg-white/50">
                     <FormControl>
                       <Checkbox
                         checked={field.value}
                         onCheckedChange={field.onChange}
-                        className="data-[state=checked]:bg-red-500 data-[state=checked]:border-red-500 mt-1"
+                        className="mt-1 data-[state=checked]:border-red-500 data-[state=checked]:bg-red-500"
                       />
                     </FormControl>
                     <div className="space-y-1 leading-none">
-                      <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                      <FormLabel className="cursor-pointer font-medium text-gray-700">
                         ควรเข้ารับการซ่อมบำรุง
                       </FormLabel>
                       <p className="text-xs text-gray-500">
@@ -244,16 +244,16 @@ export default function BasicInfoStep() {
                 control={control}
                 name="status.needReview"
                 render={({ field }) => (
-                  <FormItem className="flex flex-row items-start space-x-3 p-3 rounded-lg hover:bg-white/50 transition-colors">
+                  <FormItem className="flex flex-row items-start space-x-3 rounded-lg p-3 transition-colors hover:bg-white/50">
                     <FormControl>
                       <Checkbox
                         checked={field.value}
                         onCheckedChange={field.onChange}
-                        className="data-[state=checked]:bg-yellow-500 data-[state=checked]:border-yellow-500 mt-1"
+                        className="mt-1 data-[state=checked]:border-yellow-500 data-[state=checked]:bg-yellow-500"
                       />
                     </FormControl>
                     <div className="space-y-1 leading-none">
-                      <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                      <FormLabel className="cursor-pointer font-medium text-gray-700">
                         ควรตรวจเช็คเพิ่มเติม
                       </FormLabel>
                       <p className="text-xs text-gray-500">
@@ -269,16 +269,16 @@ export default function BasicInfoStep() {
                 control={control}
                 name="status.normal"
                 render={({ field }) => (
-                  <FormItem className="flex flex-row items-start space-x-3 p-3 rounded-lg hover:bg-white/50 transition-colors">
+                  <FormItem className="flex flex-row items-start space-x-3 rounded-lg p-3 transition-colors hover:bg-white/50">
                     <FormControl>
                       <Checkbox
                         checked={field.value}
                         onCheckedChange={field.onChange}
-                        className="data-[state=checked]:bg-green-500 data-[state=checked]:border-green-500 mt-1"
+                        className="mt-1 data-[state=checked]:border-green-500 data-[state=checked]:bg-green-500"
                       />
                     </FormControl>
                     <div className="space-y-1 leading-none">
-                      <FormLabel className="font-medium text-gray-700 cursor-pointer">
+                      <FormLabel className="cursor-pointer font-medium text-gray-700">
                         ปกติ
                       </FormLabel>
                       <p className="text-xs text-gray-500">

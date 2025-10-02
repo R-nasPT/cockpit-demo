@@ -1,6 +1,17 @@
-import { useFormContext } from "react-hook-form";
-import { Card, CardContent, CardHeader, CardTitle, Checkbox, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/shared/components/ui";
-import type { MultiFormValues } from "../types/form.types";
+import { useFormContext } from 'react-hook-form';
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  Checkbox,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/shared/components/ui';
+import type { MultiFormValues } from '../types/form.types';
 
 // -----------------------
 // FluidCard (uses FormField paths)
@@ -11,21 +22,21 @@ function FluidCard({
 }: {
   title: string;
   namePrefix:
-    | "engineOil"
-    | "powerSteerOil"
-    | "clutchOil"
-    | "reservoirWater"
-    | "brakeOil"
-    | "washerWater"
-    | "atOil";
+    | 'engineOil'
+    | 'powerSteerOil'
+    | 'clutchOil'
+    | 'reservoirWater'
+    | 'brakeOil'
+    | 'washerWater'
+    | 'atOil';
 }) {
   const { control } = useFormContext<MultiFormValues>();
 
   return (
-    <Card className="bg-white border-2 border-gray-200 rounded-xl p-6 shadow-sm">
-      <CardHeader className="p-0 mb-6">
+    <Card className="rounded-xl border-2 border-gray-200 bg-white p-6 shadow-sm">
+      <CardHeader className="mb-6 p-0">
         <CardTitle>
-          <h3 className="bg-gray-600 text-white px-4 py-2 rounded-lg text-lg font-semibold inline-block">
+          <h3 className="inline-block rounded-lg bg-gray-600 px-4 py-2 text-lg font-semibold text-white">
             {title}
           </h3>
         </CardTitle>
@@ -33,18 +44,18 @@ function FluidCard({
 
       <CardContent className="p-0">
         {/* Status Checkboxes */}
-        <div className="grid grid-cols-2 gap-4 mb-6">
+        <div className="mb-6 grid grid-cols-2 gap-4">
           <FormField
             control={control}
             name={`${namePrefix}.changed`}
             render={({ field }) => (
               <FormItem className="m-0">
-                <FormLabel className="flex items-center gap-3 cursor-pointer bg-gray-50 p-4 rounded-lg border-2 border-transparent hover:border-blue-200 transition-colors">
+                <FormLabel className="flex cursor-pointer items-center gap-3 rounded-lg border-2 border-transparent bg-gray-50 p-4 transition-colors hover:border-blue-200">
                   <FormControl>
                     <Checkbox
                       checked={field.value}
                       onCheckedChange={(v) => field.onChange(Boolean(v))}
-                      className="w-6 h-6 rounded"
+                      className="h-6 w-6 rounded"
                     />
                   </FormControl>
                   <span className="text-base font-medium text-gray-700">
@@ -61,12 +72,12 @@ function FluidCard({
             name={`${namePrefix}.refilled`}
             render={({ field }) => (
               <FormItem className="m-0">
-                <FormLabel className="flex items-center gap-3 cursor-pointer bg-gray-50 p-4 rounded-lg border-2 border-transparent hover:border-blue-200 transition-colors">
+                <FormLabel className="flex cursor-pointer items-center gap-3 rounded-lg border-2 border-transparent bg-gray-50 p-4 transition-colors hover:border-blue-200">
                   <FormControl>
                     <Checkbox
                       checked={field.value}
                       onCheckedChange={(v) => field.onChange(Boolean(v))}
-                      className="w-6 h-6 rounded"
+                      className="h-6 w-6 rounded"
                     />
                   </FormControl>
                   <span className="text-base font-medium text-gray-700">
@@ -82,7 +93,7 @@ function FluidCard({
         <div className="space-y-6">
           {/* Color Selection */}
           <div>
-            <span className="text-base font-semibold text-gray-800 mb-3 block">
+            <span className="mb-3 block text-base font-semibold text-gray-800">
               สี:
             </span>
             <div className="grid grid-cols-2 gap-3">
@@ -91,12 +102,12 @@ function FluidCard({
                 name={`${namePrefix}.colorRed`}
                 render={({ field }) => (
                   <FormItem className="m-0">
-                    <FormLabel className="flex items-center justify-center gap-3 cursor-pointer bg-red-50 border-2 border-red-200 p-4 rounded-lg hover:bg-red-100 transition-colors">
+                    <FormLabel className="flex cursor-pointer items-center justify-center gap-3 rounded-lg border-2 border-red-200 bg-red-50 p-4 transition-colors hover:bg-red-100">
                       <FormControl>
                         <Checkbox
                           checked={field.value}
                           onCheckedChange={(v) => field.onChange(Boolean(v))}
-                          className="w-6 h-6 border-2 rounded"
+                          className="h-6 w-6 rounded border-2"
                         />
                       </FormControl>
                       <span className="text-base font-medium text-red-700">
@@ -112,12 +123,12 @@ function FluidCard({
                 name={`${namePrefix}.colorBlue`}
                 render={({ field }) => (
                   <FormItem className="m-0">
-                    <FormLabel className="flex items-center justify-center gap-3 cursor-pointer bg-blue-50 border-2 border-blue-200 p-4 rounded-lg hover:bg-blue-100 transition-colors">
+                    <FormLabel className="flex cursor-pointer items-center justify-center gap-3 rounded-lg border-2 border-blue-200 bg-blue-50 p-4 transition-colors hover:bg-blue-100">
                       <FormControl>
                         <Checkbox
                           checked={field.value}
                           onCheckedChange={(v) => field.onChange(Boolean(v))}
-                          className="w-6 h-6 border-2 rounded"
+                          className="h-6 w-6 rounded border-2"
                         />
                       </FormControl>
                       <span className="text-base font-medium text-blue-700">
@@ -133,7 +144,7 @@ function FluidCard({
 
           {/* Level Selection */}
           <div>
-            <span className="text-base font-semibold text-gray-800 mb-3 block">
+            <span className="mb-3 block text-base font-semibold text-gray-800">
               ระดับ:
             </span>
             <div className="grid grid-cols-2 gap-3">
@@ -142,12 +153,12 @@ function FluidCard({
                 name={`${namePrefix}.levelHigh`}
                 render={({ field }) => (
                   <FormItem className="m-0">
-                    <FormLabel className="flex items-center justify-center gap-3 cursor-pointer bg-green-50 border-2 border-green-200 p-4 rounded-lg hover:bg-green-100 transition-colors">
+                    <FormLabel className="flex cursor-pointer items-center justify-center gap-3 rounded-lg border-2 border-green-200 bg-green-50 p-4 transition-colors hover:bg-green-100">
                       <FormControl>
                         <Checkbox
                           checked={field.value}
                           onCheckedChange={(v) => field.onChange(Boolean(v))}
-                          className="w-6 h-6 border-2 rounded"
+                          className="h-6 w-6 rounded border-2"
                         />
                       </FormControl>
                       <span className="text-base font-medium text-green-700">
@@ -163,12 +174,12 @@ function FluidCard({
                 name={`${namePrefix}.levelLow`}
                 render={({ field }) => (
                   <FormItem className="m-0">
-                    <FormLabel className="flex items-center justify-center gap-3 cursor-pointer bg-orange-50 border-2 border-orange-200 p-4 rounded-lg hover:bg-orange-100 transition-colors">
+                    <FormLabel className="flex cursor-pointer items-center justify-center gap-3 rounded-lg border-2 border-orange-200 bg-orange-50 p-4 transition-colors hover:bg-orange-100">
                       <FormControl>
                         <Checkbox
                           checked={field.value}
                           onCheckedChange={(v) => field.onChange(Boolean(v))}
-                          className="w-6 h-6 border-2 rounded"
+                          className="h-6 w-6 rounded border-2"
                         />
                       </FormControl>
                       <span className="text-base font-medium text-orange-700">
@@ -194,15 +205,15 @@ export default function FluidInspectionStep() {
   const { control } = useFormContext<MultiFormValues>();
 
   return (
-    <div className="bg-white rounded-lg shadow-sm p-6 mb-6">
+    <div className="mb-6 rounded-lg bg-white p-6 shadow-sm">
       {/* Step Header */}
-      <div className="bg-blue-50 border-l-4 border-blue-600 rounded-lg px-6 py-4 mb-6">
+      <div className="mb-6 rounded-lg border-l-4 border-blue-600 bg-blue-50 px-6 py-4">
         <div className="flex items-center gap-3">
           <div>
             <h2 className="text-xl font-bold text-gray-800">
               สารเคลื่อนและของเหลวต่างๆ
             </h2>
-            <p className="text-sm text-gray-600 mt-1">
+            <p className="mt-1 text-sm text-gray-600">
               ตรวจสอบระดับและสภาพของของเหลวในรถยนต์
             </p>
           </div>
@@ -210,7 +221,7 @@ export default function FluidInspectionStep() {
       </div>
 
       {/* Fluids Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         <FluidCard title="น้ำมันเครื่อง" namePrefix="engineOil" />
         <FluidCard title="น้ำมันพวงมาลัยพาวเวอร์" namePrefix="powerSteerOil" />
         <FluidCard title="น้ำมันคลัตช์" namePrefix="clutchOil" />
@@ -221,8 +232,8 @@ export default function FluidInspectionStep() {
       </div>
 
       {/* Battery Section */}
-      <div className="bg-white border-2 border-gray-200 rounded-xl p-6 shadow-sm">
-        <div className="bg-yellow-100 border-l-4 border-yellow-500 rounded-lg px-6 py-4 mb-6 flex items-center justify-between">
+      <div className="rounded-xl border-2 border-gray-200 bg-white p-6 shadow-sm">
+        <div className="mb-6 flex items-center justify-between rounded-lg border-l-4 border-yellow-500 bg-yellow-100 px-6 py-4">
           <div className="flex items-center space-x-3">
             <h3 className="text-xl font-bold text-gray-800">
               แบตเตอรี่ (Battery)
@@ -233,13 +244,13 @@ export default function FluidInspectionStep() {
             control={control}
             name="batteryChanged"
             render={({ field }) => (
-              <FormItem className="bg-gray-600 px-6 py-3 rounded-lg">
-                <FormLabel className="flex items-center cursor-pointer">
+              <FormItem className="rounded-lg bg-gray-600 px-6 py-3">
+                <FormLabel className="flex cursor-pointer items-center">
                   <FormControl>
                     <Checkbox
                       checked={field.value}
                       onCheckedChange={(v) => field.onChange(Boolean(v))}
-                      className="w-6 h-6 data-[state=checked]:bg-yellow-500 data-[state=checked]:border-yellow-500"
+                      className="h-6 w-6 data-[state=checked]:border-yellow-500 data-[state=checked]:bg-yellow-500"
                     />
                   </FormControl>
                   <span className="ml-3 text-base font-medium text-white">
@@ -255,23 +266,23 @@ export default function FluidInspectionStep() {
         <div className="space-y-8">
           {/* Voltage Section */}
           <div>
-            <div className="flex flex-col lg:flex-row lg:items-center gap-6">
-              <h4 className="bg-gray-600 text-white text-lg font-semibold px-6 py-3 rounded-lg whitespace-nowrap">
+            <div className="flex flex-col gap-6 lg:flex-row lg:items-center">
+              <h4 className="rounded-lg bg-gray-600 px-6 py-3 text-lg font-semibold whitespace-nowrap text-white">
                 ค่าแรงดันไฟฟ้า
               </h4>
 
-              <div className="flex gap-2 flex-wrap">
+              <div className="flex flex-wrap gap-2">
                 <FormField
                   control={control}
                   name="batteryVoltage.v12_4"
                   render={({ field }) => (
                     <FormItem className="m-0">
-                      <FormLabel className="flex items-center justify-center gap-3 cursor-pointer px-6 py-4 border-4 border-red-500 rounded-lg bg-red-50 hover:bg-red-100 transition-colors min-w-[80px]">
+                      <FormLabel className="flex min-w-[80px] cursor-pointer items-center justify-center gap-3 rounded-lg border-4 border-red-500 bg-red-50 px-6 py-4 transition-colors hover:bg-red-100">
                         <FormControl>
                           <Checkbox
                             checked={field.value}
                             onCheckedChange={(v) => field.onChange(Boolean(v))}
-                            className="w-6 h-6"
+                            className="h-6 w-6"
                           />
                         </FormControl>
                         <span className="text-base font-bold text-red-700">
@@ -288,12 +299,12 @@ export default function FluidInspectionStep() {
                   name="batteryVoltage.v12_5"
                   render={({ field }) => (
                     <FormItem className="m-0">
-                      <FormLabel className="flex items-center justify-center gap-3 cursor-pointer px-6 py-4 border-4 border-yellow-500 rounded-lg bg-yellow-50 hover:bg-yellow-100 transition-colors min-w-[80px]">
+                      <FormLabel className="flex min-w-[80px] cursor-pointer items-center justify-center gap-3 rounded-lg border-4 border-yellow-500 bg-yellow-50 px-6 py-4 transition-colors hover:bg-yellow-100">
                         <FormControl>
                           <Checkbox
                             checked={field.value}
                             onCheckedChange={(v) => field.onChange(Boolean(v))}
-                            className="w-6 h-6"
+                            className="h-6 w-6"
                           />
                         </FormControl>
                         <span className="text-base font-bold text-yellow-700">
@@ -310,12 +321,12 @@ export default function FluidInspectionStep() {
                   name="batteryVoltage.v12_6"
                   render={({ field }) => (
                     <FormItem className="m-0">
-                      <FormLabel className="flex items-center justify-center gap-3 cursor-pointer px-6 py-4 border-4 border-gray-500 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors min-w-[80px]">
+                      <FormLabel className="flex min-w-[80px] cursor-pointer items-center justify-center gap-3 rounded-lg border-4 border-gray-500 bg-gray-50 px-6 py-4 transition-colors hover:bg-gray-100">
                         <FormControl>
                           <Checkbox
                             checked={field.value}
                             onCheckedChange={(v) => field.onChange(Boolean(v))}
-                            className="w-6 h-6"
+                            className="h-6 w-6"
                           />
                         </FormControl>
                         <span className="text-base font-bold text-gray-700">
@@ -332,12 +343,12 @@ export default function FluidInspectionStep() {
                   name="batteryVoltage.v12_7"
                   render={({ field }) => (
                     <FormItem className="m-0">
-                      <FormLabel className="flex items-center justify-center gap-3 cursor-pointer px-6 py-4 border-4 border-gray-500 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors min-w-[80px]">
+                      <FormLabel className="flex min-w-[80px] cursor-pointer items-center justify-center gap-3 rounded-lg border-4 border-gray-500 bg-gray-50 px-6 py-4 transition-colors hover:bg-gray-100">
                         <FormControl>
                           <Checkbox
                             checked={field.value}
                             onCheckedChange={(v) => field.onChange(Boolean(v))}
-                            className="w-6 h-6"
+                            className="h-6 w-6"
                           />
                         </FormControl>
                         <span className="text-base font-bold text-gray-700">
@@ -354,12 +365,12 @@ export default function FluidInspectionStep() {
                   name="batteryVoltage.v12_8"
                   render={({ field }) => (
                     <FormItem className="m-0">
-                      <FormLabel className="flex items-center justify-center gap-3 cursor-pointer px-6 py-4 border-4 border-gray-500 rounded-lg bg-gray-50 hover:bg-gray-100 transition-colors min-w-[80px]">
+                      <FormLabel className="flex min-w-[80px] cursor-pointer items-center justify-center gap-3 rounded-lg border-4 border-gray-500 bg-gray-50 px-6 py-4 transition-colors hover:bg-gray-100">
                         <FormControl>
                           <Checkbox
                             checked={field.value}
                             onCheckedChange={(v) => field.onChange(Boolean(v))}
-                            className="w-6 h-6"
+                            className="h-6 w-6"
                           />
                         </FormControl>
                         <span className="text-base font-bold text-gray-700">
@@ -375,17 +386,17 @@ export default function FluidInspectionStep() {
           </div>
 
           {/* Start Voltage and CCA Section */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
             {/* Start Voltage */}
             <div>
-              <h4 className="bg-gray-600 text-white text-lg font-semibold px-6 py-3 rounded-lg mb-4">
+              <h4 className="mb-4 rounded-lg bg-gray-600 px-6 py-3 text-lg font-semibold text-white">
                 ค่าแรงดันไฟฟ้า ขณะสตาร์ทเครื่องยนต์
               </h4>
 
               <div className="flex items-center justify-center gap-4">
-                <button className="text-gray-400 pointer-events-none">
+                <button className="pointer-events-none text-gray-400">
                   <svg
-                    className="w-6 h-6"
+                    className="h-6 w-6"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -405,14 +416,14 @@ export default function FluidInspectionStep() {
                     name="batteryStartVoltage.v9"
                     render={({ field }) => (
                       <FormItem className="m-0">
-                        <FormLabel className="flex items-center justify-center gap-3 cursor-pointer px-6 py-4 border-4 border-red-500 rounded-l-lg bg-red-50 hover:bg-red-100 transition-colors min-w-[60px]">
+                        <FormLabel className="flex min-w-[60px] cursor-pointer items-center justify-center gap-3 rounded-l-lg border-4 border-red-500 bg-red-50 px-6 py-4 transition-colors hover:bg-red-100">
                           <FormControl>
                             <Checkbox
                               checked={field.value}
                               onCheckedChange={(v) =>
                                 field.onChange(Boolean(v))
                               }
-                              className="w-6 h-6"
+                              className="h-6 w-6"
                             />
                           </FormControl>
                           <span className="text-base font-bold text-red-700">
@@ -428,14 +439,14 @@ export default function FluidInspectionStep() {
                     name="batteryStartVoltage.v10"
                     render={({ field }) => (
                       <FormItem className="m-0">
-                        <FormLabel className="flex items-center justify-center gap-3 cursor-pointer px-6 py-4 border-4 border-gray-500 border-l-0 bg-gray-50 hover:bg-gray-100 transition-colors min-w-[60px]">
+                        <FormLabel className="flex min-w-[60px] cursor-pointer items-center justify-center gap-3 border-4 border-l-0 border-gray-500 bg-gray-50 px-6 py-4 transition-colors hover:bg-gray-100">
                           <FormControl>
                             <Checkbox
                               checked={field.value}
                               onCheckedChange={(v) =>
                                 field.onChange(Boolean(v))
                               }
-                              className="w-6 h-6"
+                              className="h-6 w-6"
                             />
                           </FormControl>
                           <span className="text-base font-bold text-gray-700">
@@ -451,14 +462,14 @@ export default function FluidInspectionStep() {
                     name="batteryStartVoltage.v11"
                     render={({ field }) => (
                       <FormItem className="m-0">
-                        <FormLabel className="flex items-center justify-center gap-3 cursor-pointer px-6 py-4 border-4 border-gray-500 border-l-0 rounded-r-lg bg-gray-50 hover:bg-gray-100 transition-colors min-w-[60px]">
+                        <FormLabel className="flex min-w-[60px] cursor-pointer items-center justify-center gap-3 rounded-r-lg border-4 border-l-0 border-gray-500 bg-gray-50 px-6 py-4 transition-colors hover:bg-gray-100">
                           <FormControl>
                             <Checkbox
                               checked={field.value}
                               onCheckedChange={(v) =>
                                 field.onChange(Boolean(v))
                               }
-                              className="w-6 h-6"
+                              className="h-6 w-6"
                             />
                           </FormControl>
                           <span className="text-base font-bold text-gray-700">
@@ -471,9 +482,9 @@ export default function FluidInspectionStep() {
                   />
                 </div>
 
-                <button className="text-gray-400 pointer-events-none">
+                <button className="pointer-events-none text-gray-400">
                   <svg
-                    className="w-6 h-6"
+                    className="h-6 w-6"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -495,7 +506,7 @@ export default function FluidInspectionStep() {
 
             {/* CCA Section */}
             <div>
-              <h4 className="bg-gray-600 text-white text-lg font-semibold px-6 py-3 rounded-lg mb-4">
+              <h4 className="mb-4 rounded-lg bg-gray-600 px-6 py-3 text-lg font-semibold text-white">
                 ค่าประสิทธิภาพการจ่ายไฟฟ้า CCA
               </h4>
 
@@ -505,12 +516,12 @@ export default function FluidInspectionStep() {
                   name="batteryCCA.ok"
                   render={({ field }) => (
                     <FormItem className="m-0">
-                      <FormLabel className="flex items-center gap-4 cursor-pointer bg-green-50 border-2 border-green-200 p-4 rounded-lg hover:bg-green-100 transition-colors">
+                      <FormLabel className="flex cursor-pointer items-center gap-4 rounded-lg border-2 border-green-200 bg-green-50 p-4 transition-colors hover:bg-green-100">
                         <FormControl>
                           <Checkbox
                             checked={field.value}
                             onCheckedChange={(v) => field.onChange(Boolean(v))}
-                            className="w-6 h-6"
+                            className="h-6 w-6"
                           />
                         </FormControl>
                         <span className="text-base font-medium text-green-700">
@@ -527,12 +538,12 @@ export default function FluidInspectionStep() {
                   name="batteryCCA.below"
                   render={({ field }) => (
                     <FormItem className="m-0">
-                      <FormLabel className="flex items-center gap-4 cursor-pointer bg-red-50 border-2 border-red-200 p-4 rounded-lg hover:bg-red-100 transition-colors">
+                      <FormLabel className="flex cursor-pointer items-center gap-4 rounded-lg border-2 border-red-200 bg-red-50 p-4 transition-colors hover:bg-red-100">
                         <FormControl>
                           <Checkbox
                             checked={field.value}
                             onCheckedChange={(v) => field.onChange(Boolean(v))}
-                            className="w-6 h-6"
+                            className="h-6 w-6"
                           />
                         </FormControl>
                         <span className="text-base font-medium text-red-700">

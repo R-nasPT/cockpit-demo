@@ -5,40 +5,40 @@ import {
   FileText,
   Car,
   Settings,
-} from "lucide-react";
-import { Link } from "react-router";
+} from 'lucide-react';
+import { Link } from 'react-router';
 
 export default function LoginForm() {
   return (
-    <div className="min-h-screen bg-[#fff200] flex flex-col">
+    <div className="flex min-h-screen flex-col bg-[#fff200]">
       {/* Main Content */}
-      <div className="flex-1 flex flex-col items-center justify-center px-4">
+      <div className="flex flex-1 flex-col items-center justify-center px-4">
         {/* Logo */}
         <div className="mb-8">
-          <h1 className="text-6xl md:text-8xl font-bold text-black tracking-wider">
+          <h1 className="text-6xl font-bold tracking-wider text-black md:text-8xl">
             COCKPIT
           </h1>
         </div>
 
         {/* App Icons */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          <div className="bg-red-600 p-3 rounded-lg shadow-lg">
-            <Shield className="w-4 h-4 md:w-8 md:h-8 text-white" />
+        <div className="mb-12 flex flex-wrap justify-center gap-4">
+          <div className="rounded-lg bg-red-600 p-3 shadow-lg">
+            <Shield className="h-4 w-4 text-white md:h-8 md:w-8" />
           </div>
-          <div className="bg-red-600 p-3 rounded-lg shadow-lg">
-            <Wrench className="w-4 h-4 md:w-8 md:h-8 text-white" />
+          <div className="rounded-lg bg-red-600 p-3 shadow-lg">
+            <Wrench className="h-4 w-4 text-white md:h-8 md:w-8" />
           </div>
-          <div className="bg-red-600 p-3 rounded-lg shadow-lg">
-            <Database className="w-4 h-4 md:w-8 md:h-8 text-white" />
+          <div className="rounded-lg bg-red-600 p-3 shadow-lg">
+            <Database className="h-4 w-4 text-white md:h-8 md:w-8" />
           </div>
-          <div className="bg-red-600 p-3 rounded-lg shadow-lg">
-            <FileText className="w-4 h-4 md:w-8 md:h-8 text-white" />
+          <div className="rounded-lg bg-red-600 p-3 shadow-lg">
+            <FileText className="h-4 w-4 text-white md:h-8 md:w-8" />
           </div>
-          <div className="bg-red-600 p-3 rounded-lg shadow-lg">
-            <Car className="w-4 h-4 md:w-8 md:h-8 text-white" />
+          <div className="rounded-lg bg-red-600 p-3 shadow-lg">
+            <Car className="h-4 w-4 text-white md:h-8 md:w-8" />
           </div>
-          <div className="bg-red-600 p-3 rounded-lg shadow-lg">
-            <Settings className="w-4 h-4 md:w-8 md:h-8 text-white" />
+          <div className="rounded-lg bg-red-600 p-3 shadow-lg">
+            <Settings className="h-4 w-4 text-white md:h-8 md:w-8" />
           </div>
         </div>
 
@@ -46,30 +46,30 @@ export default function LoginForm() {
         <div className="w-full max-w-md">
           <div className="space-y-4">
             <div>
-              <label className="block text-black text-sm font-medium mb-2">
+              <label className="mb-2 block text-sm font-medium text-black">
                 Email
               </label>
               <input
                 type="email"
-                className="w-full px-4 py-3 bg-white border-none rounded text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black"
+                className="w-full rounded border-none bg-white px-4 py-3 text-gray-700 placeholder-gray-400 focus:ring-2 focus:ring-black focus:outline-none"
                 placeholder="Enter your email"
               />
             </div>
 
             <div>
-              <label className="block text-black text-sm font-medium mb-2">
+              <label className="mb-2 block text-sm font-medium text-black">
                 Password
               </label>
               <input
                 type="password"
-                className="w-full px-4 py-3 bg-white border-none rounded text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-black"
+                className="w-full rounded border-none bg-white px-4 py-3 text-gray-700 placeholder-gray-400 focus:ring-2 focus:ring-black focus:outline-none"
                 placeholder="Enter your password"
               />
             </div>
 
             <Link
               to="/menu"
-              className="flex justify-center w-full bg-black text-white py-3 px-4 rounded font-medium hover:bg-gray-800 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-600"
+              className="flex w-full justify-center rounded bg-black px-4 py-3 font-medium text-white transition-colors duration-200 hover:bg-gray-800 focus:ring-2 focus:ring-gray-600 focus:outline-none"
             >
               Sign in
             </Link>
@@ -78,10 +78,10 @@ export default function LoginForm() {
           <div className="mt-4 text-center">
             <a
               href="#"
-              className="text-black text-sm hover:underline"
+              className="text-sm text-black hover:underline"
               onClick={(e) => {
                 e.preventDefault();
-                alert("Password reset functionality would go here");
+                alert('Password reset functionality would go here');
               }}
             >
               Forgot password?
