@@ -15,6 +15,9 @@ export const routes: RouteObject[] = [
     // element: <RootLayout />,
     Component: RootLayout,
     // errorElement: <ErrorPage />,
+    // ErrorBoundary: ErrorPage,
+    // hydrateFallbackElement: <HydrateComponent />
+    // HydrateFallback: HydrateComponent,
     children: [
       ...authRoutes,
       ...menuRoutes,
